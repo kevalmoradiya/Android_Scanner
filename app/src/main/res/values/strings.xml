@@ -2,4 +2,7 @@
     <string name="app_name">Scanner</string>
     <string name="upload_image">Click Me</string>
     <string name="camera">imageupload</string>
+    <string name="copy">Copy</string>
+    <string name="new_scan">New scan</string>
+    <string name="share">Share</string>
 </resources>
