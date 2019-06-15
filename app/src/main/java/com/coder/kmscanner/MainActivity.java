@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void uploadImage() {
-        final String filename = "image"+ System.currentTimeMillis() + ".jpg";
+        final String filename = "image_"+ System.currentTimeMillis() + ".jpg";
         final File pictures = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), filename);
         outputFuri = Uri.fromFile(pictures);
         final List<Intent> camIntents = new ArrayList<>();
