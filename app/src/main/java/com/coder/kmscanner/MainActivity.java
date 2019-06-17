@@ -17,15 +17,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
-
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
 import com.facebook.ads.AdListener;
 import com.facebook.ads.AdSize;
 import com.facebook.ads.AdView;
 import com.facebook.ads.AudienceNetworkAds;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private View mview;
     private Uri outputFuri;
     private AdView adView;
+
     public final static String EXTRA_MESSAGE = "com.coder.kmscanner.message";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Facebook banner ad setup
         AudienceNetworkAds.initialize(this);
+        //FACEBOOK AD
+
         adView = new AdView(this, "YOUR_PLACEMENT_ID", AdSize.BANNER_HEIGHT_50);
 
         // Find the Ad Container
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onError(Ad ad, AdError adError) {
                 // Ad error callback
-               
+
             }
 
             @Override

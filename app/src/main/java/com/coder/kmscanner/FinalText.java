@@ -16,6 +16,12 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdListener;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -25,8 +31,13 @@ import com.google.firebase.ml.vision.text.FirebaseVisionText;
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
 import java.util.List;
 
+
+
 public class FinalText extends AppCompatActivity implements  Toolbar.OnMenuItemClickListener  {
     private TextView et;
+
+    private AdView adView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +45,52 @@ public class FinalText extends AppCompatActivity implements  Toolbar.OnMenuItemC
         setContentView(R.layout.activity_final_text);
         et=findViewById(R.id.textExtracted);
 
+
+        //BANNER AD
+        adView = new AdView(this, "YOUR_PLACEMENT_ID", AdSize.BANNER_HEIGHT_50);
+
+        // Find the Ad Container
+        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
+
+        // Add the ad view to your activity layout
+        adContainer.addView(adView);
+        //Listener
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onError(Ad ad, AdError adError) {
+                // Ad error callback
+
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                // Ad loaded callback
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                // Ad clicked callback
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+                // Ad impression logged callback
+            }
+        });
+
+        // Request an ad
+        adView.loadAd();
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setOnMenuItemClickListener(this);
         ViewCompat.setElevation(toolbar,10);
+
+
+
+
+
 
 
         Bitmap bitmap = CropRotate.croppedImage;
@@ -122,4 +175,12 @@ public class FinalText extends AppCompatActivity implements  Toolbar.OnMenuItemC
         }
         return false;
     }
+    @Override
+    protected void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+    }
+
 }

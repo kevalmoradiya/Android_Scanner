@@ -15,14 +15,26 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    <TextView
-        android:id="@+id/textExtracted"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:autoLink="all"
-        android:layout_margin="10dp"
-        android:textSize="18sp" />
+        android:layout_below="@+id/toolbar">
+        <TextView
+            android:id="@+id/textExtracted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:textIsSelectable="true"
+            android:layout_margin="10dp"
+            android:textSize="18sp" />
+    </ScrollView>
 
-
+    <LinearLayout
+        android:id="@+id/banner_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        />
 
 </RelativeLayout>
