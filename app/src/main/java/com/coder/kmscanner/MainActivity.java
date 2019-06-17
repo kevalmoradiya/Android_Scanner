@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         AudienceNetworkAds.initialize(this);
         //FACEBOOK AD
 
-        adView = new AdView(this, "YOUR_PLACEMENT_ID", AdSize.BANNER_HEIGHT_50);
+        adView = new AdView(this, getResources().getString(R.string.fb_banner_id), AdSize.BANNER_HEIGHT_50);
 
         // Find the Ad Container
         LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
