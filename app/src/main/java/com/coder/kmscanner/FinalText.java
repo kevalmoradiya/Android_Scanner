@@ -6,6 +6,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -171,6 +172,11 @@ public class FinalText extends AppCompatActivity implements  Toolbar.OnMenuItemC
                 String sAux =et.getText().toString();
                 share.putExtra(Intent.EXTRA_TEXT, sAux);
                 startActivity(Intent.createChooser(share, "Select"));
+                break;
+            case R.id.policy:
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://applicationhelpkm.blogspot.com/p/text-scanner-privacy-policy.html"));
+                startActivity(intent);
                 break;
         }
         return false;

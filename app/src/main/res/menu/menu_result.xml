@@ -21,4 +21,11 @@
         android:title="@string/new_scan"
         >
     </item>
+    <item
+        android:id="@+id/policy"
+        android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="ifRoom"
+        android:title="@string/policy"
+        >
+    </item>
 </menu>
