@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "727687585635",
+    "firebase_url": "https://scanner-84af0.firebaseio.com",
+    "project_id": "scanner-84af0",
+    "storage_bucket": "scanner-84af0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727687585635:android:99e3f4aa91e6809b",
+        "android_client_info": {
+          "package_name": "com.coder.kmscanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727687585635-caao68a90bv4i722kmj8vogoguitim06.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC4Tnhrbejy1wY2vYyO2dffACFb9c95h8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727687585635-caao68a90bv4i722kmj8vogoguitim06.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
