@@ -30,7 +30,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private View mview;
     private Uri outputFuri;
     private AdView adView;
 
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         adView = new AdView(this, getResources().getString(R.string.fb_banner_id), AdSize.BANNER_HEIGHT_50);
 
         // Find the Ad Container
-        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
+        LinearLayout adContainer = findViewById(R.id.banner_container);
 
         // Add the ad view to your activity layout
         adContainer.addView(adView);
@@ -83,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ViewCompat.setElevation(toolbar,10);
 
-        mview=findViewById(R.id.mainView);
+        View mview = findViewById(R.id.mainView);
         mview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,14 +97,12 @@ public class MainActivity extends AppCompatActivity {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
 
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-
-            } else {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                        1);
-            }
+                        ActivityCompat.requestPermissions(this,
+                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                1);
+                    }
         }
 
     }
@@ -130,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         galleryIntent.setType("image/*");
         galleryIntent.setAction(Intent.ACTION_PICK);
         final Intent chIntent = Intent.createChooser(galleryIntent, "Select Source");
-        chIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, camIntents.toArray(new Parcelable[camIntents.size()]));
+        chIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, camIntents.toArray(new Parcelable[0]));
 
         startActivityForResult(chIntent, 1);
 

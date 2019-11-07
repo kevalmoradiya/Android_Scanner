@@ -32,7 +32,7 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.text.FirebaseVisionText;
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
 import java.util.List;
-
+import java.util.Objects;
 
 
 public class FinalText extends AppCompatActivity implements  Toolbar.OnMenuItemClickListener  {
@@ -52,7 +52,7 @@ public class FinalText extends AppCompatActivity implements  Toolbar.OnMenuItemC
         adView = new AdView(this, getResources().getString(R.string.fb_banner_id), AdSize.BANNER_HEIGHT_50);
 
         // Find the Ad Container
-        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
+        LinearLayout adContainer = findViewById(R.id.banner_container);
 
         // Add the ad view to your activity layout
         adContainer.addView(adView);
@@ -119,6 +119,8 @@ public class FinalText extends AppCompatActivity implements  Toolbar.OnMenuItemC
                                     }
                                 });
 
+
+
     }
     private void processTextRecognitionResult(FirebaseVisionText texts) {
         List<FirebaseVisionText.TextBlock> blocks = texts.getTextBlocks();
@@ -127,17 +129,17 @@ public class FinalText extends AppCompatActivity implements  Toolbar.OnMenuItemC
             return;
         }
 
-        String imageText = "";
+        StringBuilder imageText = new StringBuilder();
         for (int i = 0; i < blocks.size(); i++) {
             List<FirebaseVisionText.Line> lines = blocks.get(i).getLines();
 
             for (int j = 0; j < lines.size(); j++) {
-                List<FirebaseVisionText.Element> elements = lines.get(j).getElements();
-                imageText+= lines.get(j).getText()+ " "+"\n";
+
+                imageText.append(lines.get(j).getText()).append(" ").append("\n");
 
             }
         }
-        et.setText(imageText);
+        et.setText(imageText.toString());
 
     }
 
@@ -157,13 +159,13 @@ public class FinalText extends AppCompatActivity implements  Toolbar.OnMenuItemC
                         getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Scanner", et.getText());
 
-                clipboard.setPrimaryClip(clip);
+                Objects.requireNonNull(clipboard).setPrimaryClip(clip);
                 Toast.makeText(FinalText.this,"Text copied to clipboard", Toast.LENGTH_LONG).show();
                 break;
             case R.id.new_scan:
                 Intent i = getBaseContext().getPackageManager()
                         .getLaunchIntentForPackage( getBaseContext().getPackageName() );
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Objects.requireNonNull(i).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 break;
             case R.id.share_text:

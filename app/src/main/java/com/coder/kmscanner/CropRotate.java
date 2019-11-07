@@ -17,27 +17,24 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class CropRotate extends AppCompatActivity implements View.OnClickListener, Toolbar.OnMenuItemClickListener {
 
-    private Toolbar toolbar;
-    private FloatingActionButton mFab;
     public static Bitmap croppedImage;
-    private String message;
-    CropImageView cropImageView;
+    private CropImageView cropImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crop_rotate);
 
-        toolbar =  findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ViewCompat.setElevation(toolbar,10);
         toolbar.setOnMenuItemClickListener(this);
         Intent intent = getIntent();
-        message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         cropImageView = findViewById(R.id.cropImageView);
 
         cropImageView.setImageUriAsync(Uri.parse(message));
-        mFab = findViewById(R.id.nextStep);
+        FloatingActionButton mFab = findViewById(R.id.nextStep);
         mFab.setOnClickListener(this);
 
     }

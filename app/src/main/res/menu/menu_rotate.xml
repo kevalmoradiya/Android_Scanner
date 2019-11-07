@@ -4,14 +4,14 @@
         android:id="@+id/rotate_left"
         android:icon="@mipmap/ic_rotate_left_white_24dp"
         app:showAsAction="ifRoom"
-        android:title="Rotate -90º"
+        android:title="@string/rotate_minus_90"
         >
     </item>
     <item
         android:id="@+id/rotate_right"
         android:icon="@mipmap/ic_rotate_right_white_24dp"
         app:showAsAction="ifRoom"
-        android:title="Rotate 90º"
+        android:title="@string/rotate_plus_90"
         >
     </item>
 </menu>

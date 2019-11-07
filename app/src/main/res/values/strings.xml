@@ -7,5 +7,7 @@
     <string name="share">Share</string>
     <string name="fb_banner_id">YOUR_PLACEMENT_ID</string>
     <string name="policy">Policy</string>
+    <string name="rotate_minus_90">Rotate -90º</string>
+    <string name="rotate_plus_90">Rotate 90º</string>
 
 </resources>
