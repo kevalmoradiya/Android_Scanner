@@ -20,6 +20,7 @@ public class CropRotate extends AppCompatActivity implements View.OnClickListene
     public static Bitmap croppedImage;
     private CropImageView cropImageView;
 
+    //Oncreate method check 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
